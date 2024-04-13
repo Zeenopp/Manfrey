@@ -11,22 +11,22 @@ import onnxruntime
 from time import sleep, time
 from argparse import ArgumentParser, HelpFormatter
 
-import interactive.choices
-import interactive.globals
-from interactive.face_analyser import get_one_face, get_average_face
-from interactive.face_store import get_reference_faces, append_reference_face
-from interactive import face_analyser, face_masker, content_analyser, config, process_manager, metadata, logger, wording, voice_extractor
-from interactive.content_analyser import analyse_image, analyse_video
-from interactive.processors.frame.core import get_frame_processors_modules, load_frame_processor_module
-from interactive.common_helper import create_metavar, get_first
-from interactive.execution import encode_execution_providers, decode_execution_providers
-from interactive.normalizer import normalize_output_path, normalize_padding, normalize_fps
-from interactive.memory import limit_system_memory
-from interactive.statistics import conditional_log_statistics
-from interactive.download import conditional_download
-from interactive.filesystem import list_directory, get_temp_frame_paths, create_temp, move_temp, clear_temp, is_image, is_video, filter_audio_paths, resolve_relative_path
-from interactive.ffmpeg import extract_frames, merge_video, copy_image, finalize_image, restore_audio, replace_audio
-from interactive.vision import read_image, read_static_images, detect_image_resolution, restrict_video_fps, create_image_resolutions, get_video_frame, detect_video_resolution, detect_video_fps, restrict_video_resolution, restrict_image_resolution, create_video_resolutions, pack_resolution, unpack_resolution
+import facefusion.choices
+import facefusion.globals
+from facefusion.face_analyser import get_one_face, get_average_face
+from facefusion.face_store import get_reference_faces, append_reference_face
+from facefusion import face_analyser, face_masker, content_analyser, config, process_manager, metadata, logger, wording, voice_extractor
+from facefusion.content_analyser import analyse_image, analyse_video
+from facefusion.processors.frame.core import get_frame_processors_modules, load_frame_processor_module
+from facefusion.common_helper import create_metavar, get_first
+from facefusion.execution import encode_execution_providers, decode_execution_providers
+from facefusion.normalizer import normalize_output_path, normalize_padding, normalize_fps
+from facefusion.memory import limit_system_memory
+from facefusion.statistics import conditional_log_statistics
+from facefusion.download import conditional_download
+from facefusion.filesystem import list_directory, get_temp_frame_paths, create_temp, move_temp, clear_temp, is_image, is_video, filter_audio_paths, resolve_relative_path
+from facefusion.ffmpeg import extract_frames, merge_video, copy_image, finalize_image, restore_audio, replace_audio
+from facefusion.vision import read_image, read_static_images, detect_image_resolution, restrict_video_fps, create_image_resolutions, get_video_frame, detect_video_resolution, detect_video_fps, restrict_video_resolution, restrict_image_resolution, create_video_resolutions, pack_resolution, unpack_resolution
 
 onnxruntime.set_default_logger_severity(3)
 warnings.filterwarnings('ignore', category = UserWarning, module = 'gradio')
